@@ -22,3 +22,7 @@ Route::group (['prefix' => 'cities'], function (){
     Route::get('/create', ['as' => 'app.cities.create', 'uses' => 'PLCitiesController@create']);
     Route::post('/create', ['uses' => 'PLCitiesController@store']);
 });
+
+Route::get('/hobbies', ['as' => 'app.hobbies', 'uses' => 'PLHobbiesController@index']);
+Route::get('/hobbies/create', ['as' => 'app.hobbies.create', 'uses' => 'PLHobbiesController@create']);
+Route::post('/hobbies/create', ['uses' => 'PLHobbiesController@store']);
