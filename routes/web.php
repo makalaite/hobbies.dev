@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group (['prefix' => 'cities'], function (){
+
+    Route::get('/', ['uses' => 'PLCitiesController@index']);
+
+    Route::get('/create', ['as' => 'app.cities.create', 'uses' => 'PLCitiesController@create']);
+    Route::post('/create', ['uses' => 'PLCitiesController@store']);
+});
