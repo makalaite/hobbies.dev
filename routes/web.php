@@ -27,4 +27,6 @@ Route::get('/hobbies', ['as' => 'app.hobbies', 'uses' => 'PLHobbiesController@in
 Route::get('/hobbies/create', ['as' => 'app.hobbies.create', 'uses' => 'PLHobbiesController@create']);
 Route::post('/hobbies/create', ['uses' => 'PLHobbiesController@store']);
 
-Route::get('persons', ['as' => 'app.persons'])
+Route::get('/persons', ['as' => 'app.persons', 'uses' => 'PLPersonsController@index']);
+Route::get('/persons/create', ['as' => 'app.persons.create', 'uses' => 'PLPersonsController@create']);
+Route::post('/persons/create', ['uses' => 'PLPersonsController@store']);

@@ -10,10 +10,4 @@
 
 {{ Form::submit('Submit') }}
 
-
-{{ Form::label('name', 'Hobby') }}
-{{ Form::text('name') }}
-
-{{ Form::submit('Submit') }}
-
 {!! Form::close() !!}

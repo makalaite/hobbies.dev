@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\PLCities;
 use App\Models\PLPersons;
 use Illuminate\Routing\Controller;
 
@@ -24,7 +25,10 @@ class PLPersonsController extends Controller {
 	 */
 	public function create()
 	{
-		return view('app.persons.create');
+	    $config = [];
+	    $config['cities'] = PLCities::all()->pluck('name', 'id');
+
+		return view('app.persons.create', $config);
 	}
 
 	/**
@@ -36,6 +40,8 @@ class PLPersonsController extends Controller {
 	public function store()
 	{
 		$record = PLPersons::create(request()->all());
+        $record['cities'] = PLCities::all()->pluck('name', 'id');
+
 		return view('app.persons.create', $record->toArray());
 	}
 
